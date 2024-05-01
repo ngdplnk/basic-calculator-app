@@ -27,8 +27,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 10214
-        versionName '0.4'
+        versionCode 10215
+        versionName '0.5'
         manifestPlaceholders = [:]
     }
 

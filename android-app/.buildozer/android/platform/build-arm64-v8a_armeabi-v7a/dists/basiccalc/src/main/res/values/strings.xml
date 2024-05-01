@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Basic Calculator PRIVATE BUILD 4</string>
-    <string name="private_version">29c93aa08c0e8814c942187c8b6c581429913b95</string>
-    <string name="presplash_color">#000000</string>
+    <string name="app_name">Basic Calculator PRIVATE BUILD 5</string>
+    <string name="private_version">668dc6f56d94727516d98aecce4995e4d0f79801</string>
+    <string name="presplash_color">#444444</string>
     <string name="urlScheme">kivy</string>
 </resources>
