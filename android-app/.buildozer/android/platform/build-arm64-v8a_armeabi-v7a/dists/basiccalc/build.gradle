@@ -21,14 +21,14 @@ apply plugin: 'com.android.application'
 
 
 android {
-    namespace 'org.ngdroidos.basiccalc.basiccalc'
+    namespace 'org.ngdroidapps.basiccalc'
     compileSdkVersion 31
     buildToolsVersion '35.0.0-rc3'
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 10213
-        versionName '0.3'
+        versionCode 10214
+        versionName '0.4'
         manifestPlaceholders = [:]
     }
 

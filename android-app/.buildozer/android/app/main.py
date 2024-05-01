@@ -5,9 +5,10 @@ from kivymd.uix.button import MDFlatButton
 
 # KV Language string for the UI layout
 kv_string = """
-AnchorLayout:
+BoxLayout:
+    orientation: 'vertical'
     anchor_x: 'center'
-    anchor_y: 'top'
+    anchor_y: 'center'
     
     MDTextField:
         id: text_field
@@ -107,7 +108,7 @@ AnchorLayout:
 
 class CalculatorApp(MDApp):
     def build(self):
-        self.title = 'Basic Calculator PRIVATE BUILD 2'
+        self.title = 'Basic Calculator PRIVATE BUILD 4'
         self.icon = 'icon.png'
         # ICON ATTRIBUTION
         # <a href="https://www.flaticon.es/iconos-gratis/calculadora" title="calculadora iconos">Calculadora iconos creados por Freepik - Flaticon</a>
