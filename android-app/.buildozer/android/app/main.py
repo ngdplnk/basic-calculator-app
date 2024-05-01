@@ -97,16 +97,16 @@ BoxLayout:
 
         MDFlatButton:
             text: '+'
-            on_press: app.calculate()
+            on_press: app.on_button_press(self.text)
         
         MDFlatButton:
             text: '='
-            on_press: app.on_button_press(self.text)
+            on_press: app.calculate()
 """
 
 class CalculatorApp(MDApp):
     def build(self):
-        self.title = 'Basic Calculator PRIVATE BUILD 1'
+        self.title = 'Basic Calculator PRIVATE BUILD 2'
         self.icon = 'icon.png'
         # ICON ATTRIBUTION
         # <a href="https://www.flaticon.es/iconos-gratis/calculadora" title="calculadora iconos">Calculadora iconos creados por Freepik - Flaticon</a>
