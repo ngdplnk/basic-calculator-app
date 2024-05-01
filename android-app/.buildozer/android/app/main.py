@@ -5,8 +5,9 @@ from kivymd.uix.button import MDFlatButton
 
 # KV Language string for the UI layout
 kv_string = """
-BoxLayout:
-    orientation: 'vertical'
+AnchorLayout:
+    anchor_x: 'center'
+    anchor_y: 'top'
     
     MDTextField:
         id: text_field
