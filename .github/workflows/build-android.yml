@@ -3,7 +3,7 @@ name: Build Android App
 on:
   push:
     branches:
-      - main  # Adjust this to match your main branch name
+      - main
 
 jobs:
   build:
@@ -30,5 +30,10 @@ jobs:
     - name: Run buildozer
       run: |
         cd android-app/
-        chmod +x build_script.sh
-        ./build_script.sh
+        buildozer android debug
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v2
+      with:
+        name: app
+        path: android-app/bin/*.apk
