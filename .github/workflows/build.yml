@@ -25,5 +25,6 @@ jobs:
 
     - name: Run buildozer
       run: |
-        chmod +x android-app/build_script.sh
-        ./android-app/build_script.sh
+        cd android-app/
+        chmod +x build_script.sh
+        ./build_script.sh
