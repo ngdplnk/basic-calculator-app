@@ -5,7 +5,7 @@ from kivymd.app import MDApp
 from kivymd.uix.button import MDFlatButton
 from kivymd.uix.label import MDLabel
 
-__version__ = "0.7-beta"
+__version__ = "0.7-alpha"
 
 kv_string = """
 AnchorLayout:
