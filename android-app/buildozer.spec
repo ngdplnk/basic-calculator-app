@@ -7,7 +7,7 @@ title = Basic Calculator
 package.name = basiccalc
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.ngdroidapps
+package.domain = org.ngsoftware
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -33,7 +33,7 @@ source.include_exts = py,png,jpg,kv,atlas
 
 # (str) Application versioning (method 2)
 version.regex = __version__ = ['"](.*)['"]
-version.filename = %(source.dir)s/main.py
+version.filename = %(source.dir)s/setup.py
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy

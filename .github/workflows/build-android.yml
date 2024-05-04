@@ -17,11 +17,7 @@ jobs:
       run: |
         sudo apt update
         sudo apt install python3-pip
-        sudo apt install openjdk-17-jdk openjdk-17-jre
-        sudo apt-get install build-essential
-        sudo apt-get install libstdc++6
-        sudo apt-get install aidl
-        sudo apt-get install expect
+        sudo apt install openjdk-17-jdk
         pip install cython
         pip install kivy
         pip install kivymd
