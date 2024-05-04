@@ -1,0 +1,29 @@
+name: Build Android App
+
+on:
+  push:
+    branches:
+      - main  # Adjust this to match your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install python3-pip
+        sudo apt install openjdk-17-jdk openjdk-17-jre
+        pip install cython
+        pip install kivy
+        pip install kivymd
+        pip install buildozer
+
+    - name: Run buildozer
+      run: |
+        chmod +x android-app/build_script.sh
+        ./android-app/build_script.sh
