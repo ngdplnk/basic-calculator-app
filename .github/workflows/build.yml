@@ -21,6 +21,7 @@ jobs:
         sudo apt-get install build-essential
         sudo apt-get install libstdc++6
         sudo apt-get install aidl
+        sudo apt-get install expect
         pip install cython
         pip install kivy
         pip install kivymd
