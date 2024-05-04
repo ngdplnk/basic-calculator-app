@@ -5,6 +5,8 @@ from kivymd.app import MDApp
 from kivymd.uix.button import MDFlatButton
 from kivymd.uix.label import MDLabel
 
+__version__ = "0.7-beta"
+
 kv_string = """
 AnchorLayout:
     adaptive_height: True
@@ -130,7 +132,7 @@ AnchorLayout:
 
 class CalculatorApp(MDApp):
     def build(self):
-        self.title = 'Basic Calculator PRIVATE BUILD 6'
+        self.title = 'Basic Calculator'
         self.icon = 'icon.png'
         # ICON ATTRIBUTION
         # <a href="https://www.flaticon.es/iconos-gratis/calculadora" title="calculadora iconos">Calculadora iconos creados por Freepik - Flaticon</a>
