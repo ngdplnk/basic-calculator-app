@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'android-app/*.py'
+      - 'android-app/*.kv'
+      - 'android-app/*.spec'
+      - 'android-app/*.png'
+      - '.github/workflows/build-android.yml'
 
 jobs:
   build:
@@ -22,8 +28,6 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt update
-        sudo apt upgrade
-        sudo apt install python3-pip
         pip install cython
         pip install kivy
         pip install kivymd
@@ -34,30 +38,24 @@ jobs:
         cd android-app/
         buildozer android debug
 
-    - name: Upload compiled APK
+    - name: Find latest compiled APK
+      id: findfile
+      run: echo "::set-output name=apkfile::$(ls -t android-app/bin/*.apk | head -n1)"
+      
+    - name: Get last commit tag
+      id: lasttag
+      run: echo "::set-output name=tag::$(git describe --tags --abbrev=0)"
+    
+    - name: Upload APK
       uses: actions/upload-artifact@v2
       with:
-        name: app
-        path: android-app/bin/*.apk
-
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        draft: false
-        prerelease: true
-  
-    - name: Upload Release Asset
-      id: upload-release-asset 
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./android-app/bin/YourAppName-0.1-debug.apk
-        asset_name: Basic-Calculator-debug.apk
-        asset_content_type: application/vnd.android.package-archive
+        name: ${{ steps.lasttag.outputs.tag }}
+        path: ${{ steps.findfile.outputs.apkfile }}
+    
+    - name: Commit and push
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add android-app/bin/*
+        git commit -m "Add generated APK from workflows" -a
+        git push
