@@ -41,23 +41,24 @@ jobs:
     - name: Prepare artifact
       id: prepareArtifact
       run: |
-        artifactUpload=`ls -t android-app/bin/*.apk | head -n1` && echo "artifactUpload=$artifactUpload" >> $GITHUB_OUTPUT
-      
-    - name: Get last commit tag
-      id: lastTag
-      run: |
-        artifactName=`git describe --tags --abbrev=0` && echo "artifactName=$artifactName" >> $GITHUB_OUTPUT
+        artifactUpload=`ls -t android-app/bin/*.apk | head -n1`
+        artifactName="basiccalc-build$(date +%s)-arm64-v8a_armeabi-v7a-debug"
+        mv $artifactUpload android-app/bin/$artifactName.apk
+        artifactUpload="android-app/bin/$artifactName.apk"
+        echo "artifactUpload=$artifactUpload" >> $GITHUB_OUTPUT
+        echo "artifactName=$artifactName" >> $GITHUB_OUTPUT
     
     - name: Upload APK
       uses: actions/upload-artifact@v2
       with:
-        name: ${{ steps.lastTag.outputs.artifactName }}
+        name: ${{ steps.prepareArtifact.outputs.artifactName }}
         path: ${{ steps.prepareArtifact.outputs.artifactUpload }}
     
     - name: Commit and push
       run: |
+        
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add android-app/bin/*
-        git commit -m "Add generated APK from workflows" -a
+        git commit -m "Add compiled APK from latest commit" -a
         git push
