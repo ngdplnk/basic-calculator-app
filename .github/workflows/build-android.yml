@@ -38,19 +38,21 @@ jobs:
         cd android-app/
         buildozer android debug
 
-    - name: Find latest compiled APK
-      id: findfile
-      run: echo "::set-output name=apkfile::$(ls -t android-app/bin/*.apk | head -n1)"
+    - name: Prepare artifact
+      id: prepareArtifact
+      run: |
+        artifactUpload=`ls -t android-app/bin/*.apk | head -n1` && echo "artifactUpload=$artifactUpload" >> $GITHUB_OUTPUT
       
     - name: Get last commit tag
-      id: lasttag
-      run: echo "::set-output name=tag::$(git describe --tags --abbrev=0)"
+      id: lastTag
+      run: |
+        artifactName=`git describe --tags --abbrev=0` && echo "artifactName=$artifactName" >> $GITHUB_OUTPUT
     
     - name: Upload APK
       uses: actions/upload-artifact@v2
       with:
-        name: ${{ steps.lasttag.outputs.tag }}
-        path: ${{ steps.findfile.outputs.apkfile }}
+        name: ${{ steps.lastTag.outputs.artifactName }}
+        path: ${{ steps.prepareArtifact.outputs.artifactUpload }}
     
     - name: Commit and push
       run: |
