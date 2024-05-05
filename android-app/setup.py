@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='Basic Calculator',
-    version='0.7-alpha',
+    name='Basic Calculator Alpha',
+    version='0.7',
     description='A Basic Calculator App',
     author='NGSoftware',
     author_email='nikkotilion@gmail.com',
