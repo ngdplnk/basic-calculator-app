@@ -62,3 +62,5 @@ jobs:
         git add android-app/bin/*
         git commit -m "Add compiled APK from latest commit" -a
         git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
