@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Basic Calculator PRIVATE BUILD 6</string>
-    <string name="private_version">10e000da75996e89d9c1ce0b1c5b4b5d668dc0b2</string>
-    <string name="presplash_color">#444444</string>
-    <string name="urlScheme">kivy</string>
-</resources>
