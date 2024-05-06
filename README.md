@@ -1,6 +1,10 @@
-# basic-calculator-app
-Basic Calculator: An experimental calculator app built for mobile devices. Offers essential arithmetic operations in a sleek, user-friendly interface.
+# Basic Calculator
+Basic Calculator is an experimental calculator app built for mobile devices. Offers essential arithmetic operations in a sleek, user-friendly interface.
+
+## Download the latest Alpha build from [Github Actions](https://github.com/ngdplnk/basic-calculator-app/actions)
 
 
-WORK IN PROGRESS.
-WAIT FOR THE NEXT RELEASE :)
+### ©2024 - NGSoftware
+Team:
+- @naicossj - iOS experimental development
+- @ngdplnk - Android experimental development
