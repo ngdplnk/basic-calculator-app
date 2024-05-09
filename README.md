@@ -12,3 +12,5 @@ This app is still on Alpha, so expect things that don't work as intended.
 Team:
 - [@naicoooossj](https://github.com/naicoooossj) - iOS experimental development
 - [@ngdplnk](https://github.com/ngdplnk) - Android experimental development
+
+Icon: ["Calculadora iconos" by Freepik - Flaticon](https://www.flaticon.es/iconos-gratis/calculadora)
