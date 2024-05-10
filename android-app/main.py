@@ -55,252 +55,252 @@ AnchorLayout:
             MDButton:
                 id: ac_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.clear_text_field()
                 MDButtonText:
                     text: 'AC'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: parentheses_open_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('(')
                 MDButtonText:
                     text: '('
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: parentheses_close_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press(')')
                 MDButtonText:
                     text: ')'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: percentage_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('%')
                 MDButtonText:
                     text: '%'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: seven_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('7')
                 MDButtonText:
                     text: '7'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: eight_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('8')
                 MDButtonText:
                     text: '8'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: nine_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('9')
                 MDButtonText:
                     text: '9'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: division_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('/')
                 MDButtonText:
                     text: '/'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: four_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('4')
                 MDButtonText:
                     text: '4'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: five_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('5')
                 MDButtonText:
                     text: '5'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: six_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('6')
                 MDButtonText:
                     text: '6'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: multiplication_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('*')
                 MDButtonText:
                     text: 'x'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: one_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('1')
                 MDButtonText:
                     text: '1'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: two_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('2')
                 MDButtonText:
                     text: '2'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: three_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('3')
                 MDButtonText:
                     text: '3'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: subtraction_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('-')
                 MDButtonText:
                     text: '-'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: dot_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('.')
                 MDButtonText:
                     text: '.'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: zero_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('0')
                 MDButtonText:
                     text: '0'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: backspace_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.backspace()
                 MDButtonText:
-                    text: '⌫'
-                    text_size: self.size
+                    text: 'DEL'
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: addition_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.on_button_press('+')
                 MDButtonText:
                     text: '+'
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
             MDButton:
                 id: equal_button
                 size_hint: None, None
-                adaptive_height: True
-                adaptive_width: True
+                height: 65
+                width: 65
                 on_press: app.calculate()
                 MDButtonText:
                     text: '='
-                    text_size: self.size
+                    text_size: 15, 100
                     halign: 'center'
                     valign: 'center'
 
@@ -311,7 +311,7 @@ class CalculatorApp(MDApp):
         self.title = 'Basic Calculator Alpha'
         self.icon = 'icon.png'
         self.theme_cls.theme_style = "Dark"
-        self.theme_cls.primary_palette = "Green"
+        self.theme_cls.primary_palette = "Yellow"
         self.expression = ''
         return Builder.load_string(kv_string)
 

@@ -22,7 +22,7 @@ source.include_exts = py,png,jpg,kv,atlas
 #source.exclude_exts = spec
 
 # (list) List of directory to exclude (let empty to not exclude anything)
-#source.exclude_dirs = tests, bin, venv
+source.exclude_dirs = tests, bin, venv
 
 # (list) List of exclusions using pattern matching
 # Do not prefix with './'
@@ -101,19 +101,19 @@ android.presplash_color = #444444
 #android.features = android.hardware.usb.host
 
 # (int) Target Android API, should be as high as possible.
-#android.api = 31
+android.api = 34
 
 # (int) Minimum API your APK / AAB will support.
-#android.minapi = 21
+android.minapi = 28
 
 # (int) Android SDK version to use
-#android.sdk = 20
+android.sdk = 28
 
 # (str) Android NDK version to use
-#android.ndk = 23b
+android.ndk = 26d
 
 # (int) Android NDK API to use. This is the minimum API your app will support, it should usually match android.minapi.
-#android.ndk_api = 21
+android.ndk_api = 28
 
 # (bool) Use --private data storage (True) or --dir public storage (False)
 #android.private_storage = True
