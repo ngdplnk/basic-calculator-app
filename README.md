@@ -1,5 +1,5 @@
 # Basic Calculator
-![Alt text](https://raw.githubusercontent.com/ngdplnk/basic-calculator-app/main/android-app/banner.png)
+![Alt text](https://raw.githubusercontent.com/ngdplnk/basic-calculator-app/main/android-app/data/banner.png)
 
 Basic Calculator is an experimental calculator app built for mobile devices. Offers essential arithmetic operations in a sleek, user-friendly interface.
 
