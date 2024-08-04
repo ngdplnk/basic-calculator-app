@@ -2,308 +2,132 @@ from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.scrollview import ScrollView
 from kivymd.app import MDApp
-from kivymd.uix.button import MDButton, MDButtonText
+from kivymd.uix.button import MDFlatButton
 from kivymd.uix.label import MDLabel
-from kivymd.uix.textfield import MDTextField
 
 __version__ = "0.9"
 
 kv_string = """
 AnchorLayout:
+    adaptive_height: True
+    adaptive_width: True
+    anchor_x: 'center'
+    anchor_y: 'center'
     canvas.before:
         Color:
-            rgba: 68/255, 68/255, 68/255, 1
+            rgba: 0.267, 0.267, 0.267, 1  # Background color (#444444)
         Rectangle:
-            size: self.size
             pos: self.pos
+            size: self.size
 
     BoxLayout:
         orientation: 'vertical'
-        size_hint: 0.85, 0.85
-        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        size_hint: 0.5, 0.5  # Set the size of the widget to 50 percent of its parent's size
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Set the position of the widget to the center of its parent
         adaptive_height: True
         adaptive_width: True
-        canvas.before:
-            Color:
-                rgba: 68/255, 68/255, 68/255, 1
-            Rectangle:
-                size: self.size
-                pos: self.pos
 
-        MDLabel:
-            id: title
-            text: 'Basic Calculator Alpha'
-            halign: 'center'
-            size_hint_y: None
-            height: 50
-                
         MDTextField:
             id: text_field
-            hint_text: 'Enter expression'
-            font_size: '30sp'
+            hint_text: 'Your expression goes here'
+            font_size: '40sp'
             readonly: True
             padding: [10, 20]
+            color: 1, 1, 1, 1  # Text color (white)
         
         GridLayout:
             cols: 4
-            spacing: 5
-            padding: 10
+            size_hint: 1, 1  # Set the size of the widget to 100 percent of its parent's size
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Set the position of the widget to the center of its parent
+            padding: [10, 20]
             adaptive_height: True
             adaptive_width: True
-            halign: 'center'
+            anchor_x: 'center'
+            anchor_y: 'center'
 
-            MDButton:
-                id: ac_button
-                size_hint: None, None
-                height: 65
-                width: 65
+            MDFlatButton:
+                text: 'AC'
                 on_press: app.clear_text_field()
-                MDButtonText:
-                    text: 'AC'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
 
-            MDButton:
-                id: parentheses_open_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('(')
-                MDButtonText:
-                    text: '('
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '('
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: parentheses_close_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press(')')
-                MDButtonText:
-                    text: ')'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: ')'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: percentage_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('%')
-                MDButtonText:
-                    text: '%'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '%'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: seven_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('7')
-                MDButtonText:
-                    text: '7'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '7'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: eight_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('8')
-                MDButtonText:
-                    text: '8'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '8'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: nine_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('9')
-                MDButtonText:
-                    text: '9'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '9'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: division_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('/')
-                MDButtonText:
-                    text: '/'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '/'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: four_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('4')
-                MDButtonText:
-                    text: '4'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '4'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: five_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('5')
-                MDButtonText:
-                    text: '5'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '5'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: six_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('6')
-                MDButtonText:
-                    text: '6'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '6'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: multiplication_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('*')
-                MDButtonText:
-                    text: 'x'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '*'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: one_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('1')
-                MDButtonText:
-                    text: '1'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '1'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: two_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('2')
-                MDButtonText:
-                    text: '2'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '2'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: three_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('3')
-                MDButtonText:
-                    text: '3'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '3'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: subtraction_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('-')
-                MDButtonText:
-                    text: '-'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '-'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: dot_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('.')
-                MDButtonText:
-                    text: '.'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '.'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: zero_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('0')
-                MDButtonText:
-                    text: '0'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '0'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: backspace_button
-                size_hint: None, None
-                height: 65
-                width: 65
+            MDFlatButton:
+                text: '<-'
                 on_press: app.backspace()
-                MDButtonText:
-                    text: 'DEL'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
 
-            MDButton:
-                id: addition_button
-                size_hint: None, None
-                height: 65
-                width: 65
-                on_press: app.on_button_press('+')
-                MDButtonText:
-                    text: '+'
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
+            MDFlatButton:
+                text: '+'
+                on_press: app.on_button_press(self.text)
 
-            MDButton:
-                id: equal_button
-                size_hint: None, None
-                height: 65
-                width: 65
+            MDFlatButton:
+                text: '='
                 on_press: app.calculate()
-                MDButtonText:
-                    text: '='
-                    text_size: 15, 100
-                    halign: 'center'
-                    valign: 'center'
-
 """
 
 class CalculatorApp(MDApp):
@@ -311,7 +135,7 @@ class CalculatorApp(MDApp):
         self.title = 'Basic Calculator Alpha'
         self.icon = 'icon.png'
         self.theme_cls.theme_style = "Dark"
-        self.theme_cls.primary_palette = "Yellow"
+        self.theme_cls.primary_palette = "Green"
         self.expression = ''
         return Builder.load_string(kv_string)
 
@@ -321,12 +145,14 @@ class CalculatorApp(MDApp):
 
     def calculate(self):
         try:
+            # Evaluate the expression and update text field
             self.root.ids.text_field.text = str(eval(self.expression))
-            self.expression = self.root.ids.text_field.text
         except Exception as e:
+            # Handle error cases, such as division by zero
             self.root.ids.text_field.text = 'Error'
 
     def backspace(self):
+        # Remove the last character from the expression
         self.expression = self.expression[:-1]
         self.root.ids.text_field.text = self.expression
 
