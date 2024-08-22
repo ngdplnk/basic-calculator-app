@@ -43,7 +43,7 @@ jobs:
       id: prepareArtifact
       run: |
         artifactUpload=`ls -t android-app/bin/*.apk | head -n1`
-        artifactName="basiccalc-build${{ github.sha }}-arm64-v8a_armeabi-v7a-debug"
+        artifactName="basiccalc-build-dev-${{ github.sha }}-arm64-v8a_armeabi-v7a-debug"
         mv $artifactUpload android-app/bin/$artifactName.apk
         artifactUpload="android-app/bin/$artifactName.apk"
         echo "artifactUpload=$artifactUpload" >> $GITHUB_OUTPUT
@@ -73,6 +73,6 @@ jobs:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: ${{ steps.prepareArtifact.outputs.artifactUpload }}
         asset_name: ${{ steps.prepareArtifact.outputs.artifactName }}.apk
-        tag: debug-${{ github.sha }}
+        tag: dev-${{ github.sha }}
 
 #################### END OF WORKFLOW ####################

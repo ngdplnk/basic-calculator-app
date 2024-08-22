@@ -5,7 +5,7 @@ from kivymd.app import MDApp
 from kivymd.uix.button import MDFlatButton
 from kivymd.uix.label import MDLabel
 
-__version__ = "0.9"
+__version__ = "0.10"
 
 kv_string = """
 AnchorLayout:
@@ -132,7 +132,7 @@ AnchorLayout:
 
 class CalculatorApp(MDApp):
     def build(self):
-        self.title = 'Basic Calculator Alpha'
+        self.title = 'Basic Calculator Dev'
         self.icon = 'icon.png'
         self.theme_cls.theme_style = "Dark"
         self.theme_cls.primary_palette = "Green"
