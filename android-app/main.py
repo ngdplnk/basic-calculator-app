@@ -10,9 +10,9 @@
 
 ## Imports
 from kivy.clock import Clock
+from kivy import platform
 from kivymd.uix.screen import MDScreen
 from kivymd.app import MDApp
-from kivymd.uix.anchorlayout import MDAnchorLayout
 from kivymd.uix.gridlayout import MDGridLayout
 from kivymd.uix.textfield import (
     MDTextField,
@@ -24,7 +24,7 @@ from kivymd.uix.button import (
 )
 
 ## App version
-__version__ = "0.12"
+__version__ = "0.13"
 
 ## App KV string
 kv_string = """
@@ -180,6 +180,7 @@ class BasicCalculator(MDApp):
         # App properties and run
         self.title = 'Basic Calculator Dev'
         self.icon = 'assets/icon.png'
+        self.theme_cls
         self.expression = ''
         return MDScreen(
             MDGridLayout(
@@ -188,6 +189,7 @@ class BasicCalculator(MDApp):
                         text="Your expression goes here",
                     ),
                     id="text_field",
+                    text="",
                     mode="outlined",
                     readonly=True,
                     size_hint_x= 0.8,
@@ -196,6 +198,7 @@ class BasicCalculator(MDApp):
                     MDButton(
                         MDButtonText(
                             text="AC",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         width=60,
@@ -205,183 +208,221 @@ class BasicCalculator(MDApp):
                     MDButton(
                         MDButtonText(
                             text="(",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
-                        on_press=lambda x: self.on_button_press(x.text),
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text=")",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="%",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="7",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="8",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="9",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="/",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="4",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="5",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="6",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="*",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="1",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="2",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="3",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="-",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text=".",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="0",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="DEL",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.backspace(),
                     ),
                     MDButton(
                         MDButtonText(
                             text="+",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
                         size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.on_button_press(x._button_text.text),
                     ),
                     MDButton(
                         MDButtonText(
                             text="=",
+                            padding=[20,20,20,20]
                         ),
                         style="tonal",
-                        size_hint=(None, None),
                         width=60,
                         height=60,
+                        on_press=lambda x: self.calculate(),
                     ),
                     cols=4,
                     rows=6,
@@ -404,35 +445,31 @@ class BasicCalculator(MDApp):
         )
 
     # Button press behavior
-    def on_button_press(self, instance):
+    def on_button_press(self, _button_text):
         # Append the button text to the expression and update text field
-        self.expression += instance.text
-        self.root.ids.text_field.text = self.expression
+        self.expression += _button_text
+        self.root.get_ids().text_field.text = self.expression
 
     # Calculate the expression
     def calculate(self):
         try:
             # Evaluate the expression and update text field
-            self.root.ids.text_field.text = str(eval(self.expression))
+            self.root.get_ids().text_field.text = str(eval(self.expression))
         except Exception as e:
             # Handle error cases, such as division by zero
-            self.root.ids.text_field.text = 'Error'
+            self.root.get_ids().text_field.text = 'Error'
 
     # Backspace behavior
     def backspace(self):
         # Remove the last character from the expression and update text field
         self.expression = self.expression[:-1]
-        self.root.ids.text_field.text = self.expression
+        self.root.get_ids().text_field.text = self.expression
 
     # Clear text field
     def clear_text_field(self):
         # Clear the text field and reset the expression
-        self.root.ids.text_field.text = ''
+        self.root.get_ids().text_field.text = ''
         self.expression = ''
-    
-    # Update color scheme on resume
-    def on_resume(self, *args):
-        self.theme_cls.set_colors()
 
     # Set dynamic color scheme
     def set_dynamic_color(self, *args) -> None:
@@ -441,9 +478,8 @@ class BasicCalculator(MDApp):
     # On start behavior
     def on_start(self):
         self.fps_monitor_start()
-        def callback(permission, results):
-            if all([res for res in results]):
-                Clock.schedule_once(self.set_dynamic_color)
+        self.theme_cls.dynamic_color = True
+
 
 ## Main function
 BasicCalculator().run()
