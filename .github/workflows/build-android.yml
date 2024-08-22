@@ -72,7 +72,7 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: ${{ steps.prepareArtifact.outputs.artifactUpload }}
-        asset_name: ${{ steps.prepareArtifact.outputs.artifactName }}
+        asset_name: ${{ steps.prepareArtifact.outputs.artifactName }}.apk
         tag: debug-${{ github.sha }}
 
 #################### END OF WORKFLOW ####################
