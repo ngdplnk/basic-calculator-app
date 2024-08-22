@@ -5,7 +5,7 @@ from kivymd.app import MDApp
 from kivymd.uix.button import MDFlatButton
 from kivymd.uix.label import MDLabel
 
-__version__ = "0.10"
+__version__ = "0.11"
 
 kv_string = """
 AnchorLayout:
@@ -13,6 +13,7 @@ AnchorLayout:
     adaptive_width: True
     anchor_x: 'center'
     anchor_y: 'center'
+    padding: [10, 10, 10, 10]
     canvas.before:
         Color:
             rgba: 0.267, 0.267, 0.267, 1  # Background color (#444444)
@@ -21,119 +22,149 @@ AnchorLayout:
             size: self.size
 
     BoxLayout:
-        orientation: 'vertical'
-        size_hint: 0.5, 0.5  # Set the size of the widget to 50 percent of its parent's size
-        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Set the position of the widget to the center of its parent
         adaptive_height: True
         adaptive_width: True
+        orientation: 'vertical'
 
         MDTextField:
             id: text_field
             hint_text: 'Your expression goes here'
             font_size: '40sp'
             readonly: True
-            padding: [10, 20]
+            line_color_normal: 1, 1, 1, 1  # Line color (white)
+            anchor_x: 'center'
+            anchor_y: 'center'
+            adaptive_height: True
+            adaptive_width: True
             color: 1, 1, 1, 1  # Text color (white)
         
         GridLayout:
-            cols: 4
-            size_hint: 1, 1  # Set the size of the widget to 100 percent of its parent's size
-            pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Set the position of the widget to the center of its parent
-            padding: [10, 20]
             adaptive_height: True
             adaptive_width: True
-            anchor_x: 'center'
-            anchor_y: 'center'
+            cols: 4
+            rows: 6
+            padding: [20, 20, 20, 20]
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
             MDFlatButton:
                 text: 'AC'
+                padding: [20, 20, 20, 20]
                 on_press: app.clear_text_field()
 
             MDFlatButton:
                 text: '('
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: ')'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '%'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '7'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '8'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '9'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '/'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '4'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '5'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '6'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '*'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '1'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '2'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '3'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '-'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '.'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '0'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
-                text: '<-'
+                text: '←'
+                padding: [20, 20, 20, 20]
                 on_press: app.backspace()
 
             MDFlatButton:
                 text: '+'
+                padding: [20, 20, 20, 20]
                 on_press: app.on_button_press(self.text)
 
             MDFlatButton:
                 text: '='
+                padding: [20, 20, 20, 20]
                 on_press: app.calculate()
+
+        MDLabel:
+            text: 'Developed by: @ngdplnk'
+            font_size: '10sp'
+            color: 1, 1, 1, 1  # Text color (white)
+            adaptive_height: True
+            adaptive_width: True
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            padding: [20, 20, 20, 20]
 """
 
 class CalculatorApp(MDApp):
     def build(self):
         self.title = 'Basic Calculator Dev'
-        self.icon = 'icon.png'
+        self.icon = 'assets/icon.png'
         self.theme_cls.theme_style = "Dark"
         self.theme_cls.primary_palette = "Green"
         self.expression = ''
@@ -152,7 +183,6 @@ class CalculatorApp(MDApp):
             self.root.ids.text_field.text = 'Error'
 
     def backspace(self):
-        # Remove the last character from the expression
         self.expression = self.expression[:-1]
         self.root.ids.text_field.text = self.expression
 
