@@ -18,10 +18,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@master
 
     - name: Set up JDK 17
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@main
       with:
         java-version: '17'
         distribution: 'adopt'
@@ -39,22 +39,22 @@ jobs:
         cd android-app/
         buildozer android debug
 
-    - name: Prepare artifact
+    - name: Prepare artifacts
       id: prepareArtifact
       run: |
         artifactUpload=`ls -t android-app/bin/*.apk | head -n1`
-        artifactName="basiccalc-build$(date +%s)-arm64-v8a_armeabi-v7a-debug"
+        artifactName="basiccalc-build${{ github.sha }}-arm64-v8a_armeabi-v7a-debug"
         mv $artifactUpload android-app/bin/$artifactName.apk
         artifactUpload="android-app/bin/$artifactName.apk"
         echo "artifactUpload=$artifactUpload" >> $GITHUB_OUTPUT
         echo "artifactName=$artifactName" >> $GITHUB_OUTPUT
     
-    - name: Upload APK
-      uses: actions/upload-artifact@v4
+    - name: Upload artifact
+      uses: actions/upload-artifact@master
       with:
         name: ${{ steps.prepareArtifact.outputs.artifactName }}
         path: ${{ steps.prepareArtifact.outputs.artifactUpload }}
-    
+
     - name: Commit and push
       run: |
         
@@ -66,3 +66,13 @@ jobs:
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Upload to releases
+      uses: svenstaro/upload-release-action@master
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: ${{ steps.prepareArtifact.outputs.artifactUpload }}
+        asset_name: ${{ steps.prepareArtifact.outputs.artifactName }}
+        tag: debug-${{ github.sha }}
+
+#################### END OF WORKFLOW ####################
