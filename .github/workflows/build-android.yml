@@ -30,7 +30,7 @@ jobs:
       run: |
         sudo apt update
         pip install cython
-        pip install kivy
+        pip install https://github.com/kivy/kivy/archive/master.zip
         pip install https://github.com/kivymd/KivyMD/archive/master.zip
         pip install buildozer
 
