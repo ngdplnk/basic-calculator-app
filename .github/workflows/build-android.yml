@@ -31,7 +31,7 @@ jobs:
         sudo apt update
         sudo apt install -y zip unzip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
         pip install Cython==0.29.33 virtualenv setuptools wheel
-        pip install "kivy[full] @ https://github.com/kivy/kivy/archive/master.zip"
+        pip install kivy[full]
         pip install https://github.com/kivymd/KivyMD/archive/master.zip
         pip install buildozer
 
