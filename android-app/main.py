@@ -23,9 +23,6 @@ from kivymd.uix.button import (
     MDButtonText,
 )
 
-## App version
-__version__ = "0.13"
-
 ## Main app class
 class BasicCalculator(MDApp):
     # App build and properties
