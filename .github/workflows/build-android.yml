@@ -38,7 +38,7 @@ jobs:
       run: |
         sudo apt update
         sudo apt install -y zip unzip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev build-essential
-        pip install Cython virtualenv setuptools wheel
+        pip install Cython==0.29.33 virtualenv setuptools wheel
         pip install kivy[full]
         pip install https://github.com/kivymd/KivyMD/archive/master.zip
         pip install buildozer
@@ -54,7 +54,7 @@ jobs:
       id: prepareArtifact
       run: |
         artifactUpload=`ls -t android-app/bin/*.apk | head -n1`
-        artifactName="basiccalc-build-dev-${{ github.sha }}-arm64-v8a_armeabi-v7a-debug"
+        artifactName="basiccalc-build-dev-${{ github.sha }}-arm64-debug"
         mv $artifactUpload android-app/bin/$artifactName.apk
         artifactUpload="android-app/bin/$artifactName.apk"
         echo "artifactUpload=$artifactUpload" >> $GITHUB_OUTPUT
