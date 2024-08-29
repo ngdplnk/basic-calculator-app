@@ -26,161 +26,12 @@ from kivymd.uix.button import (
 ## App version
 __version__ = "0.13"
 
-## App KV string
-kv_string = """
-MDAnchorLayout:
-    minimum_height: root.height
-    minimum_width: root.width
-    adaptive_height: True
-    adaptive_width: True
-    padding: [10, 10, 10, 10]
-
-    MDBoxLayout:
-        adaptive_height: True
-        adaptive_width: True
-        orientation: 'vertical'
-
-        MDTextField:
-            id: text_field
-            hint_text: 'Your expression goes here'
-            font_size: '40sp'
-            readonly: True
-            line_color_normal: 1, 1, 1, 1  # Line color (white)
-            adaptive_height: True
-            adaptive_width: True
-            color: 1, 1, 1, 1  # Text color (white)
-        
-        MDGridLayout:
-            adaptive_height: True
-            adaptive_width: True
-            cols: 4
-            rows: 6
-            padding: [20, 20, 20, 20]
-            pos_hint: {'center_x': 0.8, 'center_y': 0.5}
-
-            MDFlatButton:
-                text: 'AC'
-                padding: [20, 20, 20, 20]
-                on_press: app.clear_text_field()
-
-            MDFlatButton:
-                text: '('
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: ')'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '%'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '7'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '8'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '9'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '/'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '4'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '5'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '6'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '*'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '1'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '2'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '3'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '-'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '.'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '0'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: 'DEL'
-                padding: [20, 20, 20, 20]
-                on_press: app.backspace()
-
-            MDFlatButton:
-                text: '+'
-                padding: [20, 20, 20, 20]
-                on_press: app.on_button_press(self.text)
-
-            MDFlatButton:
-                text: '='
-                padding: [20, 20, 20, 20]
-                on_press: app.calculate()
-
-        MDLabel:
-            text: 'Developed by: @ngdplnk'
-            font_size: '10sp'
-            color: 1, 1, 1, 1  # Text color (white)
-            adaptive_height: True
-            adaptive_width: True
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            padding: [20, 20, 20, 20]
-"""
-
 ## Main app class
 class BasicCalculator(MDApp):
     # App build and properties
     def build(self):
-        # App properties and run
         self.title = 'Basic Calculator Dev'
-        self.icon = 'assets/icon.png'
-        self.theme_cls
+        """self.icon = 'assets/icon.png'"""
         self.expression = ''
         return MDScreen(
             MDGridLayout(
@@ -470,10 +321,6 @@ class BasicCalculator(MDApp):
         # Clear the text field and reset the expression
         self.root.get_ids().text_field.text = ''
         self.expression = ''
-
-    # Set dynamic color scheme
-    def set_dynamic_color(self, *args) -> None:
-        self.theme_cls.dynamic_color = True
 
     # On start behavior
     def on_start(self):
